@@ -14,6 +14,12 @@ drop files onto the window and their paths are printed to stdout.
 Requires macOS 12+ and the Xcode command-line tools (`xcode-select --install`).
 
 ```sh
+brew install xeruf/tap/drago
+```
+
+Or from source:
+
+```sh
 git clone https://github.com/xeruf/drago && cd drago
 make install                 # installs to /usr/local/bin
 make install PREFIX=~/.local # or anywhere else
