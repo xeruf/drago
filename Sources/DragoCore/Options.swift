@@ -8,7 +8,7 @@ public struct Options: Equatable {
     public var target = false
     public var keep = false
     public var printPath = false
-    public var onTop = false
+    public var onTop = true
     public var iconOnly = false
     public var readStdin = false
     public var paths: [String] = []
@@ -41,7 +41,8 @@ public let usage = """
       -t, --target        act as a drop target and print dropped paths/URLs
       -k, --keep          with --target: keep accepting drops (default exits after one)
       -p, --print-path    print the path of each dragged file to stdout
-      -T, --on-top        keep the window above other windows
+      -T, --on-top        keep the window above other windows (default)
+      -N, --no-on-top     let other windows cover it
       -i, --icon-only     show only icons, no file names
       -I, --stdin         read additional paths from stdin, one per line
       -h, --help          show this help
@@ -76,6 +77,7 @@ public func parse(_ args: [String]) throws -> Command {
             case "k", "keep": o.keep = true
             case "p", "print-path": o.printPath = true
             case "T", "on-top": o.onTop = true
+            case "N", "no-on-top": o.onTop = false
             case "i", "icon-only": o.iconOnly = true
             case "I", "stdin": o.readStdin = true
             case "h", "help": return .help

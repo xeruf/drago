@@ -49,7 +49,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.title = "drago"
         window.contentView = scroll
+        // why: the window is used while another app is focused (dragging into it);
+        // at normal level it vanishes behind the terminal as soon as that is clicked.
         window.level = options.onTop ? .floating : .normal
+        window.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
         window.center()
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)

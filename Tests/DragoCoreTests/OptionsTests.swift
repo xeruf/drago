@@ -23,6 +23,11 @@ final class OptionsTests: XCTestCase {
         XCTAssertEqual(o.paths, ["a", "b"])
     }
 
+    func testOnTopByDefault() throws {
+        XCTAssertTrue(try opts(["a"]).onTop)
+        XCTAssertFalse(try opts(["-N", "a"]).onTop)
+    }
+
     func testNoPathsImpliesTarget() throws {
         XCTAssertTrue(try opts([]).target)
         XCTAssertFalse(try opts(["--stdin"]).target)

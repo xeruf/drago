@@ -53,6 +53,7 @@ swift test --filter OptionsTests/testResolve  # single test
 
 - Short flags stay compatible with dragon's where they overlap (`-x -a -A -t -k -p -T -i -I`) — users alias one wrapper across Linux and macOS.
 - stdout carries only dropped/dragged paths, one per line, line-buffered — it is meant to be piped; messages go to stderr.
+- The window floats by default (`-N` opts out) — at normal level it disappears behind the terminal once that is focused.
 - `DragItemView.acceptsFirstMouse` returns true — otherwise the first click only focuses the window and the drag never starts.
 - Drop handling defers `onDone` to the next runloop turn so the source app receives the accepted drop before we terminate.
 

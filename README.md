@@ -38,7 +38,8 @@ fd -e png | drago -I -x      # read paths from stdin
 | `-t`, `--target` | act as a drop target and print dropped paths/URLs |
 | `-k`, `--keep` | with `--target`: keep accepting drops |
 | `-p`, `--print-path` | print the path of each dragged file |
-| `-T`, `--on-top` | keep the window above other windows |
+| `-T`, `--on-top` | keep the window above other windows (default, accepted for dragon compatibility) |
+| `-N`, `--no-on-top` | let other windows cover it |
 | `-i`, `--icon-only` | show only icons |
 | `-I`, `--stdin` | read additional paths from stdin |
 
